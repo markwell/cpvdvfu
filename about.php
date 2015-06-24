@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-	<?php include ('templates\cpv_2015.06\head.php'); ?>
+	<?php include ('templates/cpv_2015.06/head.php'); ?>
 
 	<body class="page">
 
-		<?php include ('templates\cpv_2015.06\header.php'); ?>
+		<?php include ('templates/cpv_2015.06/header.php'); ?>
 
 		<main role="main">
 			<div id="intro-wrap" class="">
