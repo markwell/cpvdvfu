@@ -7,10 +7,14 @@
 					<a id="menu-toggle" href="#"><i class="fa fa-bars fa-lg"></i></a>
 					<nav>
 						<ul class="reset" role="navigation">
-							<li class="menu-item"><a href="contacts">О нас</a></li>
+							<li class="menu-item"><a href="about">О нас</a></li>
 							<li class="menu-item"><a href="faq">FAQ</a></li>
-							<li class="menu-item"><a href="registration">Регистрация</a></li>						
-							<li class="menu-item"><a href="login">Войти</a></li>						
+							<?php if (isset($_COOKIE['username'])){echo '<li class="menu-item"><a href="#">Личный кабинет</a> </li>			<li class="menu-item"><a href="/adm/login/logoutUser">Выход</a></li>';} else {
+							  
+							  echo "
+							  <li class='menu-item'><a href='registration'>Регистрация</a></li>						
+							  <li class='menu-item'><a href='login'>Войти</a></li>	";
+							} ?>
 							</li>
 						</ul>
 					</nav>
