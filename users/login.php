@@ -10,10 +10,10 @@ include_once("bd.php");
 <body>
 
 <?php
-if (isset($_POST['login'])) {
-	$login = $_POST['login']; 
-	if ($login == '') {
-		unset($login);
+if (isset($_POST['email'])) {
+	$email = $_POST['email']; 
+	if ($email == '') {
+		unset($email);
 		exit ("Введите пожалуйста логин!");
 	} 
 }
@@ -25,19 +25,19 @@ if (isset($_POST['password'])) {
 	}
 }
 
-$login = stripslashes($login);
-$login = htmlspecialchars($login);
+$email = stripslashes($email);
+$email = htmlspecialchars($email);
 
 $password = stripslashes($password);
 $password = htmlspecialchars($password);
 
 
-$login = trim($login);
+$email = trim($email);
 $password = trim($password);
 
 $password = md5($password);//шифруем пароль
 
-$user = mysql_query("SELECT id FROM users WHERE login='$login' AND password='$password'");
+$user = mysql_query("SELECT id FROM users WHERE email='$email' AND password='$password'");
 $id_user = mysql_fetch_array($user);
 if (empty($id_user['id'])){
 	exit ("Извините, введённый вами логин или пароль неверный.");
@@ -46,7 +46,7 @@ else {
 
    
     $_SESSION['password']=$password; 
-	$_SESSION['login']=$login; 
+	$_SESSION['email']=$email; 
     $_SESSION['id']=$id_user['id'];
 		  
 }
