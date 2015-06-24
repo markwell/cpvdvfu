@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<?php include ('templates\cpv_2015.06\head.php'); ?>
+		<?php include ('templates/cpv_2015.06/head.php'); ?>
 		<title>Центр подготовки волонтёров - Регистрация</title>
 	</head>
 
 	<body class="registration">
-		<?php include ('templates\cpv_2015.06\header.php'); ?>
+		<?php include ('templates/cpv_2015.06/header.php'); ?>
 		<main role="main">
 			<div id="main">
 				<form id="group" class="group-select" method="post" action="">
@@ -23,7 +23,7 @@
 			</div>					
 		</main><!-- main -->
 
-		<?php include ('templates\cpv_2015.06\footer.php'); ?>
+		<?php include ('templates/cpv_2015.06/footer.php'); ?>
 
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>		
