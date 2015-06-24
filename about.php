@@ -18,7 +18,6 @@
 			</div><!-- intro-wrap -->
 
 			<div id="main">
-
 				<section class="row section">
 					<div class="row-content buffer even clear-after">
 						<div class="section-title"><h3>Написать нам</h3></div>	
