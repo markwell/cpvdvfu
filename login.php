@@ -5,19 +5,16 @@
 		<title>Центр подготовки волонтёров - Вход</title>
 	</head>
 
-	<body class="registration">
+	<body class="login">
 		<?php include ('templates/cpv_2015.06/header.php'); ?>
 		<main role="main">
 			<div id="main">
-				<form id="login" class="login" method="post" action="">
+				<form id="login" class="login" method="post" action="users/login.php">
 				<section class="row section call-to-action">
 					<div class="row-content buffer even">
 						<p>Войти в личный кабинет</p><br><br>
 						<div id="success">
-							<?php if (isset($_COOKIE['username'])){
-							echo "Привет, <strong>".$login."</strong> | <a href='logout'>Выход</a><br>"
-							;}
-							else{
+							<?php 
 							echo '
 							<table>
 
@@ -33,9 +30,9 @@
 						    </tr>
 						    </form>
 						    </table>
-							<td colspan="2"><input class="plain button red" type="button" value="Войти" name="login" ></td>
+							<td colspan="2"><input class="plain button red" type="submit" value="Войти" name="submitlogin" ></td>
 							<a href="registration">Регистрация</a>'
-							;}
+							;
 							?>
 						</div>
 					</div>
