@@ -52,7 +52,7 @@
 	</tr>
       <tr>
        <td></td>
-      <td colspan="2"><input class="plain button red" type="button" value="Зарегистроваться" name="submitorganizer" ></td>
+      <td colspan="2"><input class="plain button red" type="submit" value="Зарегистроваться" name="submitorganizer" ></td>
       </tr>
      <br>
       </form>
