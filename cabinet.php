@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+п»ї<!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<?php include ('templates/cpv_2015.06/head.php'); ?>
-		<title>Центр подготовки волонтёров - Личный кабинет</title>
+		<title>Р¦РµРЅС‚СЂ РїРѕРґРіРѕС‚РѕРІРєРё РІРѕР»РѕРЅС‚С‘СЂРѕРІ - Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</title>
 	</head>
 
 	<body class="cabinet">
@@ -12,9 +12,9 @@
 				<form id="group" class="group-select" method="post" action="">
 				<section class="row section call-to-action">
 					<div class="row-content buffer even">
-						<p>Кем будете?</p><br><br>
-						<input id="volunteer" class="plain button red" type="button" value="Волонтёром">
-						<input id="organizer" class="plain button red" type="button" value="Организатором">
+						<p>РљРµРј Р±СѓРґРµС‚Рµ?</p><br><br>
+						<input id="volunteer" class="plain button red" type="button" value="Р’РѕР»РѕРЅС‚С‘СЂРѕРј">
+						<input id="organizer" class="plain button red" type="button" value="РћСЂРіР°РЅРёР·Р°С‚РѕСЂРѕРј">
 						<br><br>
 					<div id="success"></div>
 					</div>
