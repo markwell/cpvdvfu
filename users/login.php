@@ -1,20 +1,12 @@
-<?php
-include_once("bd.php");
+﻿<?php
+include_once("sistem/bd.php");
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>БЕСПЛАТНЫЕ уроки для веб програмиста</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
-
 <?php
 if (isset($_POST['email'])) {
 	$email = $_POST['email']; 
 	if ($email == '') {
 		unset($email);
-		exit ("Введите пожалуйста логин!");
+		exit ("Введите пожалуйста Email!");
 	} 
 }
 if (isset($_POST['password'])) {
@@ -37,10 +29,14 @@ $password = trim($password);
 
 $password = md5($password);//шифруем пароль
 
-$user = mysql_query("SELECT id FROM users WHERE email='$email' AND password='$password'");
-$id_user = mysql_fetch_array($user);
-if (empty($id_user['id'])){
-	exit ("Извините, введённый вами логин или пароль неверный.");
+$volunteer = mysql_query("SELECT VolunteerID FROM Volunteers WHERE email='$email' AND password='$password'");
+$id_volunteer = mysql_fetch_array($volunteer);
+$organizer = mysql_query("SELECT OrganizerID FROM Organizers WHERE email='$email' AND password='$password'");
+$id_organizer = mysql_fetch_array($organizer);
+if (empty($id_volunteer['VolunteerID'])){
+	if (empty($id_organizer['OrganizerID'])){
+	exit ("Извините, введённый вами Email или пароль неверный.");
+	}
 }
 else {
 
@@ -50,7 +46,5 @@ else {
     $_SESSION['id']=$id_user['id'];
 		  
 }
-echo "<meta http-equiv='Refresh' content='0; URL=index.php'>";
+echo "<meta http-equiv='Refresh' content='0; URL=index'>";
 ?>
-</body>
-</html>

@@ -30,7 +30,7 @@
 		<script src="js/plugins.js"></script>
 		<script src="js/beetle.js"></script>
 		<script>
-			//$(document).ready(function(){
+			$(document).ready(function(){
 				$('#volunteer').click(function(){
 					$(this).hide('slow');
 					$('#organizer').show('slow');
@@ -38,10 +38,10 @@
 					$('#success').html(vol); 
 					});
 				});
-			//});
+			});
 		</script>
 		<script>
-			//$(document).ready(function(){
+			$(document).ready(function(){
 				$('#organizer').click(function(){
 					$(this).hide('slow');
 					$('#volunteer').show('slow');
@@ -49,7 +49,7 @@
 					$('#success').html(org); 
 					});
 				});
-			//});
+			});
 		</script>
 	</body>
 </html>

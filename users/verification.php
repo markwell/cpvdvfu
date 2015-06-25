@@ -1,13 +1,69 @@
 <?php
     include_once("bd.php");
 	
-    if (isset($_POST['submit'])){
-		if(empty($_POST['login']))  {
-			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите логин!"> Введите логин! </font>';
-		} 
-		elseif (!preg_match("/^\w{3,}$/", $_POST['login'])) {
-			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="В поле "Логин" введены недопустимые символы!"> В поле "Логин" введены недопустимые символы! Только буквы, цифры и подчеркивание!</font>';
+    if (isset($_POST['submitvolunteer'])){
+		
+			$LastName = $_POST['LastName'];
+			$FirstName = $_POST['FirstName'];
+			$MiddleName = $_POST['MiddleName'];
+			$DoB = $_POST['DoB'];
+			$Gender = $_POST['Gender'];
+			$Email = $_POST['Email'];
+			$MobilePhone = $_POST['MobilePhone'];
+			$Place = $_POST['Place'];
+			$Stud = $_POST['Stud'];
+			$Social = $_POST['Social'];
+			$Size = $_POST['Size'];
+			$Growth = $_POST['Growth'];
+			$Languages = $_POST['Languages'];
+			$Password = $_POST['Password'];
+			$mdPassword = md5($Password);
+			$Password2 = $_POST['Password2'];
+			$DateTimeReg = date("d-m-Y в H:i");
+			  
+			$query = ("SELECT VolunteerID FROM volunteers WHERE Email='$Email'");
+			$sql = mysql_query($query) or die(mysql_error());
+			
+			if (mysql_num_rows($sql) > 0) {
+				echo '<font color="red"><img border="0" src="error.gif" align="middle" alt="Email уже зарегистрирован!"> Email уже зарегистрирован!</font>';
+			}
+			else {
+				$query2 = ("SELECT VolunteerID FROM volunteers WHERE MobilePhone='$MobilePhone'");
+				$sql = mysql_query($query2) or die(mysql_error());
+				if (mysql_num_rows($sql) > 0){
+					echo '<font color="red"><img border="0" src="error.gif"  alt="Данный номер уже зарегистрирован!"> Данный номер уже зарегистрирован!</font>';
+				}
+				else{
+					$query = "INSERT INTO volunteers (LastName, FirstName, MiddleName, DoB, Gender, Email, MobilePhone, Place, Stud, Social, Size, Growth, Languages, Password, DateTimeReg)
+							  VALUES ('$LastName', '$FirstName', '$MiddleName', '$DoB', '$Gender', '$Email', '$MobilePhone', '$Place, '$Stud', '$Social', '$Size', '$Growth', '$Languages', '$mdPassword', '$DateTimeReg'  )";
+					$result = mysql_query($query) or die(mysql_error());;
+					echo '<font color="green"><img border="0" src="ok.gif" align="middle" alt="Вы успешно зарегистрировались!"> Вы успешно зарегистрировались!</font><br><a href="index.php">На главную</a>';
+					
+								
+				}
+			}
 		}
+    }
+	
+	if (isset($_POST['submitorganizer'])){
+		if(empty($_POST['lastname']))  {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите фамилию!"> Введите фамилию! </font>';
+		} 
+		if(empty($_POST['firstname']))  {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите имя!"> Введите имя! </font>';
+		} 
+		if(empty($_POST['middlename']))  {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите отчество!"> Введите отчество! </font>';
+		} 
+		elseif(empty($_POST['email'])) {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите E-mail!">Введите E-mail! </font>';
+		}
+		elseif (!preg_match("/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,6}$/", $_POST['email'])) {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="E-mail имеет недопустимий формат!"> E-mail имеет недопустимий формат! Например, name@gmail.com! </font>';
+		}
+		if(empty($_POST['phone']))  {
+			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите номер телефона!"> Введите номер телефона! </font>';
+		} 
 		elseif(empty($_POST['password'])) {
 			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите пароль !"> Введите пароль!</font>';
 		}
@@ -19,39 +75,37 @@
 		}
 		elseif($_POST['password'] != $_POST['password2']) {
 			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введенные пароли не совпадают!"> Введенные пароли не совпадают!</font>';
-		}
-		elseif(empty($_POST['email'])) {
-			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="Введите E-mail!">Введите E-mail! </font>';
-		}
-		elseif (!preg_match("/^[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,6}$/", $_POST['email'])) {
-			echo '<br><font color="red"><img border="0" src="error.gif" align="middle" alt="E-mail имеет недопустимий формат!"> E-mail имеет недопустимий формат! Например, name@gmail.com! </font>';
-		}
-		 
+		} 
 		else{
-			$login = $_POST['login'];
+			$companyname = $_POST['companyname'];
+			$lastname = $_POST['lastname'];
+			$firstname = $_POST['firstname'];
+			$middlename = $_POST['middlename'];
+			$dob = $_POST['dob'];
+			$gender = $_POST['gender'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$social = $_POST['social'];
 			$password = $_POST['password'];
 			$mdPassword = md5($password);
 			$password2 = $_POST['password2'];
-			$email = $_POST['email'];
-			$rdate = date("d-m-Y в H:i");
-			$name = $_POST['name'];
-			$lastname = $_POST['lastname'];  
+			$datetimereg = date("d-m-Y в H:i"); 
 			  
-			$query = ("SELECT id FROM users WHERE login='$login'");
+			$query = ("SELECT organizerid FROM organizers WHERE email='$email'");
 			$sql = mysql_query($query) or die(mysql_error());
 			
 			if (mysql_num_rows($sql) > 0) {
-				echo '<font color="red"><img border="0" src="error.gif" align="middle" alt="Пользователь с таким логином зарегистрированый!"> Пользователь с таким логином зарегистрирован!</font>';
+				echo '<font color="red"><img border="0" src="error.gif" align="middle" alt="Email уже зарегистрирован!"> Email уже зарегистрирован!</font>';
 			}
 			else {
-				$query2 = ("SELECT id FROM users WHERE email='$email'");
+				$query2 = ("SELECT organizerid FROM organizers WHERE phone='$phone'");
 				$sql = mysql_query($query2) or die(mysql_error());
 				if (mysql_num_rows($sql) > 0){
-					echo '<font color="red"><img border="0" src="error.gif"  alt="Пользователь с таким e-mail зарегистрированый!"> Пользователь с таким e-mail уже зарегистрирован!</font>';
+					echo '<font color="red"><img border="0" src="error.gif"  alt="Данный номер уже зарегистрирован!"> Данный номер уже зарегистрирован!</font>';
 				}
 				else{
-					$query = "INSERT INTO users (login, password, email, reg_date, name_user, lastname )
-							  VALUES ('$login', '$mdPassword', '$email', '$rdate', '$name', '$lastname')";
+					$query = "INSERT INTO organizers (companyname, lastname, firstname, middlename, dob, gender, email, phone, social, password, datetimereg)
+							  VALUES ('$companyname', '$lastname', '$firstname', '$middlename', '$dob', '$gender', '$email', '$phone', '$social', '$mdPassword', '$datetimereg'  )";
 					$result = mysql_query($query) or die(mysql_error());;
 					echo '<font color="green"><img border="0" src="ok.gif" align="middle" alt="Вы успешно зарегистрировались!"> Вы успешно зарегистрировались!</font><br><a href="index.php">На главную</a>';
 					

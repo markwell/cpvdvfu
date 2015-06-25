@@ -1,56 +1,54 @@
-<?php
-include_once("bd.php");
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>БЕСПЛАТНЫЕ уроки для веб програмиста</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
+﻿<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<?php include ('templates/cpv_2015.06/head.php'); ?>
+		<title>Центр подготовки волонтёров - Вход</title>
+	</head>
 
-<?php
-if (isset($_POST['email'])) {
-	$email = $_POST['email']; 
-	if ($email == '') {
-		unset($email);
-		exit ("Введите пожалуйста логин!");
-	} 
-}
-if (isset($_POST['password'])) {
-	$password=$_POST['password']; 
-	if ($password =='') {
-		unset($password);
-		exit ("Введите пароль");
-	}
-}
+	<body class="registration">
+		<?php include ('templates/cpv_2015.06/header.php'); ?>
+		<main role="main">
+			<div id="main">
+				<form id="login" class="login" method="post" action="">
+				<section class="row section call-to-action">
+					<div class="row-content buffer even">
+						<p>Войти в личный кабинет</p><br><br>
+						<div id="success">
+							<?php if (isset($_COOKIE['username'])){
+							echo "Привет, <strong>".$login."</strong> | <a href='logout'>Выход</a><br>"
+							;}
+							else{
+							echo '
+							<table>
 
-$email = stripslashes($email);
-$email = htmlspecialchars($email);
+ 						    <form action="users/login.php" method="POST">
+						    <tr>
+						    <td>Email:</td>
+						    <td><input type="text" name="email" ></td>
+							</tr>
+	  
+ 						    <tr>
+						    <td>Пароль:</td>
+						    <td><input type="password" name="password" ></td>
+						    </tr>
+						    </form>
+						    </table>
+							<td colspan="2"><input class="plain button red" type="button" value="Войти" name="login" ></td>
+							<a href="registration">Регистрация</a>'
+							;}
+							?>
+						</div>
+					</div>
+				</section>
+				</form>	
+			</div>					
+		</main><!-- main -->
 
-$password = stripslashes($password);
-$password = htmlspecialchars($password);
+		<?php include ('templates/cpv_2015.06/footer.php'); ?>
 
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/beetle.js"></script>
 
-$email = trim($email);
-$password = trim($password);
-
-$password = md5($password);//шифруем пароль
-
-$user = mysql_query("SELECT id FROM users WHERE email='$email' AND password='$password'");
-$id_user = mysql_fetch_array($user);
-if (empty($id_user['id'])){
-	exit ("Извините, введённый вами логин или пароль неверный.");
-}
-else {
-
-   
-    $_SESSION['password']=$password; 
-	$_SESSION['email']=$email; 
-    $_SESSION['id']=$id_user['id'];
-		  
-}
-echo "<meta http-equiv='Refresh' content='0; URL=index.php'>";
-?>
-</body>
+	</body>
 </html>

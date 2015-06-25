@@ -9,12 +9,13 @@
 						<ul class="reset" role="navigation">
 							<li class="menu-item"><a href="about">О нас</a></li>
 							<li class="menu-item"><a href="faq">FAQ</a></li>
-							<?php if (isset($_COOKIE['username'])){echo '<li class="menu-item"><a href="#">Личный кабинет</a> </li>			<li class="menu-item"><a href="/adm/login/logoutUser">Выход</a></li>';} else {
-							  
+							<?php if (isset($_COOKIE['username'])){echo '<li class="menu-item"><a href="#">Личный кабинет</a></li>
+							<li class="menu-item"><a href="logout">Выход</a></li>';} 
+							else { 
 							  echo "
 							  <li class='menu-item'><a href='registration'>Регистрация</a></li>						
-							  <li class='menu-item'><a href='login'>Войти</a></li>	";
-							} ?>
+							  <li class='menu-item'><a href='login'>Войти</a></li>	
+							  ";} ?>
 							</li>
 						</ul>
 					</nav>
