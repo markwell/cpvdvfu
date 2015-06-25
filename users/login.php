@@ -1,5 +1,5 @@
 ﻿<?php
-include_once("sistem/bd.php");
+include_once("system/bd.php");
 ?>
 <?php
 if (isset($_POST['email'])) {

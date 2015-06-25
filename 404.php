@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 	<head>
 		<?php include ('templates/cpv_2015.06/head.php'); ?>
-		<title>Beetle - Page Not Found</title>	
+		<title> Центр подготовки волонтёров - 404</title>	
 	</head>
 
 	<body class="error404">
@@ -16,8 +16,8 @@
 				<div class="row-content buffer-left buffer-right buffer-bottom clear-after">
 					<div class="column nine">
 						<article class="clear-after">
-							<h2>Page Not Found</h2>
-							<p>Sorry but we couldn't find the page you are looking for. Please check to make sure you've typed the URL correctly. You may also want to search for what you are looking for.</p>
+							<h2>Запрашиваемая страница не найдена</h2>
+							<p>Извините, но мы не смогли найти запрашиваемую страницу. Пожалуйста, проверьте URL на корректность.</p>
 						</article>										
 					</div><!-- column nine -->
 					<aside role="complementary" class="sidebar column three last">
@@ -28,9 +28,9 @@
 							</form>
 						</div>
 						<div class="widget">
-							<h4>About the Blog</h4>
+							<h4>О нас</h4>
 							<div class="textwidget">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+								Центр подготовки волонтёров ДВФУ
 							</div><!-- la class="textwidget" e forse generata automaticamente da wp -->
 						</div>
 						<div class="widget">
