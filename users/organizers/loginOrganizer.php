@@ -50,7 +50,7 @@ include_once("bd.php");
 	    	
 	        $error = checkAndAuthUser(mb_strtolower(trim($_POST['email'])), $_POST['password']);
 	        if (is_null($error)) {
-	            header('Location:/cpvdvfu/users/checkUser.php'); //ссылка на страницу проверки пользователя
+	            header('Location:/cpvdvfu/users/checkUserOrganizer.php'); //ссылка на страницу проверки пользователя
 	        } else {
 				echo $error;
 	        }
@@ -58,50 +58,4 @@ include_once("bd.php");
 	}
 	
     authUser();
-/*
-if (isset($_POST['email'])) {
-	$email = $_POST['email']; 
-	if ($email == '') {
-		unset($email);
-		exit ("Введите пожалуйста Email!");
-	} 
-}
-if (isset($_POST['password'])) {
-	$password=$_POST['password']; 
-	if ($password =='') {
-		unset($password);
-		exit ("Введите пароль");
-	}
-}
-
-$email = stripslashes($email);
-$email = htmlspecialchars($email);
-
-$password = stripslashes($password);
-$password = htmlspecialchars($password);
-
-
-$email = trim($email);
-$password = trim($password);
-
-$password = md5($password);//шифруем пароль
-
-$volunteer = mysql_query("SELECT OrganizerID FROM Volunteers WHERE email='$email' AND password='$password'");
-$id_volunteer = mysql_fetch_array($volunteer);
-$organizer = mysql_query("SELECT OrganizerID FROM Organizers WHERE email='$email' AND password='$password'");
-$id_organizer = mysql_fetch_array($organizer);
-if (empty($id_volunteer['OrganizerID'])){
-	if (empty($id_organizer['OrganizerID'])){
-	exit ("Извините, введённый вами Email или пароль неверный.");
-	}
-}
-else {
-
-   
-    $_SESSION['password']=$password; 
-	$_SESSION['email']=$email; 
-    $_SESSION['id']=$id_user['id'];
-		  
-}
-echo "<meta http-equiv='Refresh' content='0; URL=index'>";
-*/?>
+?>
