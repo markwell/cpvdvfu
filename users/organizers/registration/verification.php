@@ -35,7 +35,10 @@
             if (count($error) == 0) {
                 echo '<font color="green">Вы успешно зарегистрировались!</font><br><a href="index.php">На главную</a>';
             } else {
-                print_r($error);
+                foreach ($error as $value) 
+						{
+							echo('<br><div>'.$value.'</div>');
+						}	
             }
         }
     }
