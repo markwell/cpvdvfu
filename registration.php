@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+include_once("bd.php");
+?>
+<!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<?php include ('templates/cpv_2015.06/head.php'); ?>

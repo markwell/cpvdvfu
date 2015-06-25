@@ -84,7 +84,7 @@
 				else{
 					$query = "INSERT INTO organizers (OrganizerName, LastName, FirstName, MiddleName, DoB, Gender, Email, MobilePhone, Social, Password, DateTimeReg)
 							  VALUES ('$OrganizerName', '$LastName', '$FirstName', '$MiddleName', '$DoB', '$Gender', '$Email', '$MobilePhone', '$Social', '$mdPassword', '$DateTimeReg')";
-					$result = mysql_query($query) or die(mysql_error());
+					$result = mysql_query($query) or die(mysql_error());;
 					echo '<font color="green"><img border="0" src="ok.gif" align="middle" alt="Вы успешно зарегистрировались!"> Вы успешно зарегистрировались!</font><br><a href="index.php">На главную</a>';
 					
 								
