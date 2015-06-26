@@ -1,5 +1,5 @@
 ﻿<?php
-include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";
+include_once ('./system/bd.php');
 
 $result = mysql_query("SELECT * FROM Organizers WHERE OrganizerID='1'");
 $array = mysql_fetch_array($result);

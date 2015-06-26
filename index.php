@@ -9,6 +9,7 @@
 	<body class="page">
 
 		<?php include ('templates/cpv_2015.06/header.php'); ?>
+		<?php include ('templates/cpv_2015.06/banner.php'); ?>
 		<?php include ('templates/cpv_2015.06/main.php'); ?>
 		<?php include ('templates/cpv_2015.06/footer.php'); ?>
 		
