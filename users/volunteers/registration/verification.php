@@ -12,7 +12,13 @@
                     if (mysql_num_rows($sql) > 0) {
                         $err[] = "Пользователь с таким email уже существует!";
                         }
-        
+
+        $query = ("SELECT VolunteerID FROM Volunteers WHERE MobilePhone='$MobilePhone'");
+                    $sql = mysql_query($query);
+                    if (mysql_num_rows($sql) > 0) {
+                        $err[] = "Пользователь с таким номером уже существует!";
+                        }
+
         $mdPassword = md5($Password);
         $repeat   = md5($Password2);
         if ($mdPassword != $repeat) {

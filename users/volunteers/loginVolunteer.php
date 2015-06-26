@@ -1,6 +1,5 @@
 <?php
-include_once("bd.php");
-	
+include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";	
 	function checkAndAuthUser($login, $password)
 	{
 

@@ -18,7 +18,7 @@
 							echo '
 							<table>
 
- 						    <form action="loginOrganizer.php" method="POST">
+ 						    <form action="users/volunteers/loginVolunteer.php" method="POST">
 						    <tr>
 						    <td>Email:</td>
 						    <td><input type="text" name="email" ></td>

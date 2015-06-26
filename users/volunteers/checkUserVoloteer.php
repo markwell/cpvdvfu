@@ -1,5 +1,5 @@
 <?php
-    include_once("bd.php");
+    include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";    
 	function getHashAndID($userID)
 	{
 		$query = mysql_query("SELECT * FROM Volunteers WHERE VolunteerID='$userID' LIMIT 1");
