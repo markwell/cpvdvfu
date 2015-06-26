@@ -9,13 +9,16 @@
 		<?php include ('templates/cpv_2015.06/header.php'); ?>
 		<main role="main">
 			<div id="main">
-				<div class="post-area clear-after">	
+				<section class="row section">
+					<div class="row-content buffer even clear-after">
+					<p>Личный кабинет</p>
 					<!-- ?php include ('users/administrator/cabinet/cabinet.php'); ?> -->
 					<!-- ?php include ('users/coordinators/cabinet/cabinet.php'); ?> -->
-					<!-- ?php include ('users/organizers/cabinet/cabinet.php'); ?> -->
-					<?php include ('users/volunteers/cabinet/cabinet.php'); ?>
-				</div>
-			</div>
+					<?php include ('users/organizers/cabinet/cabinet.php'); ?>
+					<!-- ?php include ('users/volunteers/cabinet/cabinet.php'); ?> -->
+					</div>
+				</section>
+			</div><!-- id-main -->
 		</main><!-- main -->
 
 		<?php include ('templates/cpv_2015.06/footer.php'); ?>
@@ -31,6 +34,20 @@
 			e.preventDefault()
 			$(this).tab('show')
 			})
+		</script>
+ 		<script>
+			$(document).ready(function(){
+				$('#upload').click(function(){
+					$(this).val('Отправка ...');
+					$('#success p').remove();
+					$.post('events/upload.php', function(response) {
+						$('#success').html(response);
+						//$('#success').hide('slow');
+						$('#upload').val('Заявка отправлена');
+					});
+					return false;
+				});
+			});
 		</script>
 	</body>
 </html>

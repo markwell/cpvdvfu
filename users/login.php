@@ -1,5 +1,5 @@
 ﻿<?php
-include_once("system/bd.php");
+include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";
 ?>
 <?php
 if (isset($_POST['email'])) {
@@ -29,9 +29,9 @@ $password = trim($password);
 
 $password = md5($password);//шифруем пароль
 
-$volunteer = mysql_query("SELECT VolunteerID FROM Volunteers WHERE email='$email' AND password='$password'");
+$volunteer = mysql_query("SELECT VolunteerID FROM Volunteers WHERE Email='$email' AND Password='$password'");
 $id_volunteer = mysql_fetch_array($volunteer);
-$organizer = mysql_query("SELECT OrganizerID FROM Organizers WHERE email='$email' AND password='$password'");
+$organizer = mysql_query("SELECT OrganizerID FROM Organizers WHERE Email='$email' AND Password='$password'");
 $id_organizer = mysql_fetch_array($organizer);
 if (empty($id_volunteer['VolunteerID'])){
 	if (empty($id_organizer['OrganizerID'])){

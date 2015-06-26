@@ -1,6 +1,6 @@
 ﻿<?php
     
-    include_once("bd.php");
+    include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";
     function AddUser($OrganizerName,$LastName,$FirstName,$MiddleName,$DoB,$Gender,$Email,$MobilePhone,$Social,$Password,$Password2,$DateTimeReg)
     {
         $err = array();

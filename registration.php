@@ -1,5 +1,5 @@
 ﻿<?php
-include_once("bd.php");
+include_once("system/bd.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">

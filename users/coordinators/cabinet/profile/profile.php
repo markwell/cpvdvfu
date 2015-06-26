@@ -1,58 +1,89 @@
-<!-- Использование -->
-$('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-$('#myTab a[href="#profile"]').tab('show') // Select tab by name
-$('#myTab a:first').tab('show') // Select first tab
-$('#myTab a:last').tab('show') // Select last tab
-$('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)
+п»ї<?php
+include_once $_SERVER['DOCUMENT_ROOT']."/cpvdvfu/system/bd.php";
 
-
-
-<!-- Разметка -->
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">Главная</a></li>
-  <li><a href="#profile" data-toggle="tab">Профиль</a></li>
-  <li><a href="#messages" data-toggle="tab">Сообщения</a></li>
-  <li><a href="#settings" data-toggle="tab">Настройки</a></li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="home">...</div>
-  <div class="tab-pane" id="profile">...</div>
-  <div class="tab-pane" id="messages">...</div>
-  <div class="tab-pane" id="settings">...</div>
-</div>
-
-<!-- Эффект угасания -->
-<div class="tab-content">
-  <div class="tab-pane fade in active" id="home">...</div>
-  <div class="tab-pane fade" id="profile">...</div>
-  <div class="tab-pane fade" id="messages">...</div>
-  <div class="tab-pane fade" id="settings">...</div>
-</div>
-
-
-<!-- Методы $().tab -->
-<ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#home" data-toggle="tab">Главная</a></li>
-  <li><a href="#profile" data-toggle="tab">Профиль</a></li>
-  <li><a href="#messages" data-toggle="tab">Сообщения</a></li>
-  <li><a href="#settings" data-toggle="tab">Настройки</a></li>
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane active" id="home">...</div>
-  <div class="tab-pane" id="profile">...</div>
-  <div class="tab-pane" id="messages">...</div>
-  <div class="tab-pane" id="settings">...</div>
-</div>
-
-<script>
-  $(function () {
-    $('#myTab a:last').tab('show')
-  })
-</script>
+$result = mysql_query("SELECT * FROM Volunteers WHERE VolunteerID='1'");
+$array = mysql_fetch_array($result);
+?>
+<profile role="coord">
+	<table>
+	<form action="verification.php" method="POST">
+	<tr>
+	<td>Р¤Р°РјРёР»РёСЏ:</td>
+	<td><input name="LastName" size="20" type="text" required value="<?php echo $array['LastName']?>" /></td>
+	</tr>
+	<tr>
+	<td>РРјСЏ:</td>
+	<td><input name="FirstName" size="20" type="text" required value="<?php echo $array['FirstName']?>" /></td>
+	</tr>
+	<tr>
+	<td>РћС‚С‡РµСЃС‚РІРѕ:</td>
+	<td><input name="MiddleName" size="20" type="text" required value="<?php echo $array['MiddleName']?>" /></td>
+	</tr>
+	<tr>
+	<td>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ:</td>
+	<td><input name="DoB" size="20" type="date" required value="<?php echo $array['DoB']?>" /></td>
+	</tr>
+    <tr>
+	<td>РџРѕР»:</td>
+	<td>
+		<input type="radio" name="Gender" id="Male" checked/>
+		<label for="Male">РњСѓР¶СЃРєРѕР№</label>
+		<input type="radio" name="Gender" id="Female" />
+	    <label for="Female">Р–РµРЅСЃРєРёР№</label>
+    </td>
+	</tr>
+	<tr>
+	<td>E-mail:</td>
+	<td><input name="Email" size="20" type="email" required value="<?php echo $array['Email']?>" /></td>
+	</tr>
+	<tr>
+	<td>РўРµР»РµС„РѕРЅ:</td>
+	<td><input name="MobilePhone" size="20" type="tel" required value="<?php echo $array['MobilePhone']?>" /></td>
+	</tr>
+	<tr> 	
+	<td>РђРґСЂРµСЃ РїСЂРѕР¶РёРІР°РЅРёСЏ:</td>
+	<td><textarea rows="4" cols="10" name="Place" required value="<?php echo $array['Place']?>" ></textarea></td>
+	</tr>
+	<tr>
+	<td>РЈС‡РµР±РЅРѕРµ Р·Р°РІРµРґРµРЅРёРµ:</td>
+	<td><textarea rows="4" cols="10" name="Stud" required value="<?php echo $array['Stud']?>" ></textarea></td>
+	</tr>
+	<td>РЎРѕС†. СЃРµС‚Рё:</td>
+	<td><input name="Social" size="20" type="url" value="<?php echo $array['Social']?>" /></td>
+	</tr>
+	<tr>
+	<td>Р Р°Р·РјРµСЂ РѕРґРµР¶РґС‹:</td>
+	<td><select name="Size"> <!-- <input name="Size" size="20" type="text" /> -->
+		<option value="XXS">XXS</option>
+		<option value="XS">XS</option>
+		<option value="S">S</option>
+		<option value="M">M</option>
+		<option value="L">L</option>
+		<option value="XL">XL</option>
+		<option value="XXL">XXL</option>
+		<option value="XXXL">XXXL</option>
+	</select></td>
+	<tr>
+	<td>Р РѕСЃС‚:</td>
+	<td><input name="Growth" size="20" type="number" required value="<?php echo $array['Growth']?>" /></td>
+	</tr>
+	<tr>
+	<td>РЇР·С‹РєРё:</td>
+	<td><textarea rows="4" cols="10" name="Languages" value="<?php echo $array['Languages']?>" ></textarea></td>
+	</tr>
+	<tr>
+	<td>РџР°СЂРѕР»СЊ<span style="color: red;">*</span>:</td>
+	<td><input maxlength="20" name="Password" size="20" type="password" required /></td>
+	</tr>
+	<tr>
+	<td>РџРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ РїР°СЂРѕР»СЏ<span style="color: red;">*</span>:</td>
+	<td><input maxlength="20" name="Password2" size="20" type="password" required /></td>
+	</tr>
+      <tr>
+       <td></td>
+      <td colspan="2"><input class="plain button red" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" name="savecoordinator" ></td>
+      </tr>
+     <br>
+      </form>
+      </table>
+</profile>
